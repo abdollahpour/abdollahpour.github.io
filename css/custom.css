@@ -4,3 +4,6 @@ body {
 .container {
 	max-width: 1000;
 }
+* {
+	font-family: tahoma, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
