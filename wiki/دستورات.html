@@ -1,0 +1,502 @@
+
+<p>نرم افزار MJFace toolkit قابلیت های ویژه ای را از طریق دستورات تکمیلی در اختیار سازنده قرار می دهد که در زیر می توانید لیستی از آنها را دریافت نمایید</p>
+<p>{{warning}}
+پارامتر هایی که با * مشخص می شوند به صورت غیر اختیاری می باشند و حتما باید درنظر گرفته شود</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+
+<ul>
+<ul>
+<li class="toclevel-1"><a href="#playtone">playtone</a>
+</li>
+<li class="toclevel-1"><a href="#flash">flash</a>
+</li>
+<li class="toclevel-1"><a href="#play">play</a>
+</li>
+<li class="toclevel-1"><a href="#touchsupport">touchsupport</a>
+</li>
+<li class="toclevel-1"><a href="#stop">stop</a>
+</li>
+<li class="toclevel-1"><a href="#p">p</a>
+</li>
+<li class="toclevel-1"><a href="#if">if</a>
+</li>
+<li class="toclevel-1"><a href="#and.2For">and/or</a>
+</li>
+<li class="toclevel-1"><a href="#not">not</a>
+</li>
+<li class="toclevel-1"><a href="#number">number</a>
+</li>
+<li class="toclevel-1"><a href="#now">now</a>
+</li>
+<li class="toclevel-1"><a href="#oghatshari">oghatshari</a>
+</li>
+<li class="toclevel-1"><a href="#language">language</a>
+</li>
+<li class="toclevel-1"><a href="#message1">message1</a>
+</li>
+<li class="toclevel-1"><a href="#message2">message2</a>
+</li>
+<li class="toclevel-1"><a href="#sendsms">sendsms</a>
+</li>
+<li class="toclevel-1"><a href="#info">info</a>
+</li>
+<li class="toclevel-1"><a href="#font">font</a>
+</li>
+<li class="toclevel-1"><a href="#rand">rand</a>
+</li>
+<li class="toclevel-1"><a href="#tel">tel</a>
+</li>
+</ul>
+</ul></td></tr></table><hr/>
+<h2><span class="mw-headline" id="playtone">playtone</span></h2>
+<p>Play default mobile sounds</p>
+<p><b>Parameters</b></p>
+
+<ol>
+<li>
+<ul>
+<li>Name of tone <b>alarm/confirmation/error/info/warning</b></li></ul></li>
+<li>Number of period </li>
+<li>Delay between each period in millisecond</li></ol>
+
+<p><b>Return value</b></p>
+<p>Empty</p>
+<p><b>Example</b></p>
+<pre>
+c:playtone:alarm:2:500
+</pre>
+
+<h2><span class="mw-headline" id="flash">flash</span></h2>
+<p>Flash screen</p>
+<p><b>Parameters</b></p>
+
+<ol>
+<li>Number of period </li>
+<li>Delay between each period in millisecond</li></ol>
+
+<p><b>Return value</b></p>
+<p>Empty</p>
+<p><b>Example</b></p>
+<pre>
+c:flash:2:500
+</pre>
+
+<h2><span class="mw-headline" id="play">play</span></h2>
+<p>به منظور پخش انواع فایل های صوتی می توانید از این سیستم استفاده نمایید. توجه نمایید که فرمت های پخش شده در این سیستم بستگی به نوع تلفن همراه شما داشته و در هر تلفن همراه ممکن است به یک نحو باشد. بهتر شیوه استفاده از فایل های AMR است. توجه نمایید که به منظور استفاده در نرم افزار MJFace toolkit حتما باید آیتم &#39;چند رسانه ای&#39; در بخش قابلیت ها در پنجره ساختن انتخاب شده باشد.</p>
+<p>فایل &#62; ساختن &#62; ساختن برای j2me ... &#62; قابلیت ها &#62; چند رسانه ای</p>
+<p>در صورت که از فایل های موجود بر روی SDCard استفاده می نمایید باید توجه داشته باشید که به دلیل اینکه J2ME برنامه شما را به دلایل امنیتی متوقف می کند باید از دستور thread استفاده نمایید (نمونه را توجه کنید) و نیز باید توجه داشته باشید که برای این کار حتما باید قابلیت دسترسی به فایل نیز توسط بخش زیر فعال شود:</p>
+<p>فایل &#62; ساختن &#62; ساختن برای j2me ... &#62; قابلیت ها &#62; آدرس (به حالت ... + فایل + ... تغییر دهید)</p>
+<p>توجه داشته باشید که ممکن است صدا در emulator اجرا نشود (یا برعکس در گوشی اجرا نشود) این امر به دلیل آن است که هر نسخه از تلفن همراه ممکن است قادر به پخش نوعی از فایل صوتی نباشد (حتما تلفن همراه شما mp3 پخش می کند اما ممکن است که در جاوا این قابلیت را نداشته باشد!) پس حتما این مورد را در تلفن همراه تست نمایید</p>
+
+<p><b>پارامترها</b></p>
+
+<ol>
+<li>
+<ul>
+<li>آدرس فایل مورد نظر</li></ul></li>
+<li>نوف فایل مورد نظر. اگر آدرس شما با یکی از پسوند ها wav, amr, mp3, au, midi و با mid پایان پیدا می کند نیازی به set کرد این آیتم ندارید در غیر این صورت باید mime-type مربوط به فایل صوتی را اینجا وارد نمایید. لیست mime-type ها بسته به نوع فایل خود را می توانید از <a class="externallink" href="http://en.wikipedia.org/wiki/Internet_media_type" rel="nofollow" title="http://en.wikipedia.org/wiki/Internet_media_type">اینجا</a> دریافت نمایید</li>
+<li>تعداد تکرار ها</li>
+<li>اگر true باشد زمانی که شخص بر روی هر کلیدی در تلفن همراه و یا صفحه لمسی کلیک کند صدا به متوقف خواهد شد. مقدار پیشفرض false است</li>
+<li>اگر true باشد زمانی که صدای جدید پخش شود صدای قبلی به صورت خودکار متوقف خواهد شد. مقدار پیش فرض true است</li></ol>
+
+<p><b>مقدار برگشتی</b></p>
+<p>ندارد</p>
+<p><b>نمونه</b></p>
+<div dir="ltr" lang="en">
+<pre>
+c:play:/sound/1.amr:audio/amr:100:1:false:true
+c:thread:{c:play:{file\:///E\:/sample/1.mp3}}
+</pre></div>
+
+<h2><span class="mw-headline" id="touchsupport">touchsupport</span></h2>
+<p>بررسی اینکه آیا تلفن همراه مورد نظر دارای صفحه لمسی می باشد یا غیر. از این قابلیت می توانید به منظور نمایش اطلاعات متناسب نوع تلفن همراه (برای مثال صفحه راهنما) استفاده نمایید</p>
+<p><b>پارامترها</b></p>
+<p>ندارد</p>
+<p><b>مقدار برگشتی</b></p>
+<p>true یا false</p>
+<p><b>نمونه</b></p>
+<div dir="ltr" lang="en">
+<pre>
+c:if:{c:touchsupport}:true:{c:message1:Touch support}:{c:message2:Touch not support}
+
+c:if:{c:touchsupport}:true:{w:html:page1.htm}:{w:html:page2.htm}
+</pre></div>
+
+<h2><span class="mw-headline" id="stop">stop</span></h2>
+<p>Stop all current media</p>
+<p><b>Parameters</b></p>
+<p>Empty</p>
+<p><b>Return value</b></p>
+<p>Empty</p>
+<p><b>Example</b></p>
+<pre>
+c:stop
+</pre>
+
+<h2><span class="mw-headline" id="p">p</span></h2>
+<p>برای گرفتن مقدار و یا قرار دادن یک مقدار جدید برای یک property از این دستور استفاده می شود</p>
+<p>برای اختصار می توانید دستور مربوطه را به هر یک از اشکال زیر استفاده نمایید</p>
+<div dir="ltr" lang="en">
+<pre>
+c:p:sample_key
+p:sample_key
+property:sample_key
+</pre></div>
+
+
+
+<p><b> پارامتر ها </b></p>
+
+<ol>
+<li>
+<ul>
+<li>نام (کلید) برای ذخیره سازی</li></ul></li>
+<li>مقدار جدید در صورتی که می خواهید مقدار تغییر نماید</li>
+<li>اگر می خواهید که مقدار در صورت وجود تغییر نکند (false) و در صورتی که می خواهید به هر شکل مقدار جدید قرار گیرد (true). مقدار پیش فرض true می باشد</li></ol>
+
+
+<p><b> مقدار بازگشتی </b></p>
+<p>مقدار property مورد نظر در صورت وجود</p>
+
+<p><b> مثال </b></p>
+<p>در یافت مقدار:
+</p>
+<div dir="ltr" lang="en">
+<pre>
+p:sample_key
+</pre></div>
+
+<p>قرار دادن مقدار جدید
+</p>
+<div dir="ltr" lang="en">
+<pre>
+p:sample_key:sample_value
+</pre></div>
+
+<p>قرار دادن مقدار جدید در صورت عدم وجود
+</p>
+<div dir="ltr" lang="en">
+<pre>
+p:sample_key:sample_value:true
+</pre></div>
+
+<h2><span class="mw-headline" id="if">if</span></h2>
+<p>Conditional if command</p>
+<p><b>Parameters</b></p>
+
+<ol>
+<li>
+<ul>
+<li>First parameter</li></ul></li>
+<li>
+<ul>
+<li>Second parameter</li></ul></li>
+<li>Run if result is true</li>
+<li>Run if result is false</li></ol>
+
+<p><b>Return value</b></p>
+<p>Result of condition true/false</p>
+<p><b>Example</b></p>
+<pre>
+c:if:{c:touchsupport}:true:{c:message1:Touch support}:{c:message2:Touch not support}
+</pre>
+
+<h2><span class="mw-headline" id="and.2For">and/or</span></h2>
+<p>and/or operator</p>
+<p><b>Parameters</b></p>
+
+<ol>
+<li>First parameter</li>
+<li>Second parameter</li>
+<li>...</li></ol>
+
+<p><b>Return value</b></p>
+<p>result of operator true/false</p>
+<p><b>Example</b></p>
+<p>Show touch_help.htm if is first time that application run and phone support touch screen
+</p>
+<pre>
+c:if:{c:and:{c:touchsupport}:{c:if:{p:numberofuse}:1}}:{html:touch_help.htm}
+</pre>
+
+<h2><span class="mw-headline" id="not">not</span></h2>
+<p>Not operator</p>
+<p><b>Parameters</b></p>
+
+<ol>
+<li>First parameter</li></ol>
+
+<p><b>Return value</b></p>
+<p>Not result of parameter <b>true/false</b></p>
+<p><b>Example</b></p>
+<p>Return true if &#34;sample_key&#34; value be false and return false otherwise
+c:not:{p:samlpe_key}</p>
+<h2><span class="mw-headline" id="number">number</span></h2>
+<p>Convert Arabic and Persian numbers to English</p>
+<p><b>Parameters</b></p>
+
+<ol>
+<li>Arabic/Persian numbers</li></ol>
+
+<p><b>Return value</b></p>
+<p>Number</p>
+<p><b>Example</b></p>
+<pre>
+c:number:۱۲۳
+</pre>
+
+<h2><span class="mw-headline" id="now">now</span></h2>
+<p>ارائه تاریخ کنونی سیستم با فرمت yyyy/MM/dd hh:mm:ss</p>
+<p><b>پارامتر</b></p>
+<p>ندارد</p>
+<p><b>مقدار بازگشتی</b></p>
+<p>تاریخ کنونی</p>
+<p><b>مثال</b></p>
+<div dir="ltr" lang="en">
+<pre>
+c:now
+مقدار یازگشتی: 2011/5/4 12:3:10
+</pre></div>
+
+<h2><span class="mw-headline" id="oghatshari">oghatshari</span></h2>
+<p>به منظور نمایش اطلاعات اوقات شرعی می توانید از این دستور استفاده نمایید</p>
+<p><b>پارامترها</b></p>
+
+<ol>
+<li>
+<ul>
+<li>شماره کد وضعیت. 1 = اذان صبح 2 = طلوع آفتاب 3 = اذان ظهر 4 = غروب آفتاب 5 = اذان مغرب</li></ul></li>
+<li>
+<ul>
+<li>تاریخ دریافت اوقات شرعی با فرمت yyy/MM/dd برای مثال 2011/12/1. در صورتی که می خواهید از تاریخ کنونی تلفن همراه استفاده کنید این آیتم را خالی بگذارید</li></ul></li>
+<li>
+<ul>
+<li>موقیت شهر مورد نظر به منظور دریافت اوقات شرعی با فرمت latitiude,longitude. شما می توانید موقعیت جغرافیایی شهر خود را بر روی نقشه از سایت www.getlatlon.com دریافت نمایید.</li></ul></li>
+<li>زبان نمایش اعداد. مقدار پیش فرض زبان سیستم می باشد</li></ol>
+
+<p><b>مقدار بازگشتی</b></p>
+<p>ساعت اوقات شرعی مورد نظر با فرمت hh:mm</p>
+<p><b>مثال</b></p>
+<pre>
+ command:oghatshari:2::2011/1/1:fa
+</pre>
+
+<h2><span class="mw-headline" id="language">language</span></h2>
+<p>به منظور دریافت زبان نرم افزار یا تغییر زبان نرم افزار می توانید از این دستور استفاده نمایید. توجه نمایید که در صورتی که از زبان انگلیسی استفاده نمایید Orientation نرم افزار به صورت خودکار چپ چین و در صورتی که از زبان فارسی و یا عربی استفاده نمایید Orientation نرم افزار به صورت راست چین خواهد شد</p>
+
+<p><b>موارد استفاده</b></p>
+
+<ul>
+<li>ساخت منوی چند زبانه در شروع نرم افزار</li>
+<li>آدرس دهی محتواها بدون به صورتی که برای زبان های مختلف محتواهای مختلف استفاده شود برای مثال page1-fa.htm برای فارسی و page1-en.htm برای انگلیسی</li></ul>
+
+
+<p><b>پارامترها</b></p>
+
+<ol>
+<li>زبان مورد نظر (در حال حاضر تنها en ar و fa) در صورتی که می خواهید زبان را تغییر دهید</li></ol>
+
+
+<p><b>مقدار بازگشتی</b></p>
+<p>زبان کنونی سیستم</p>
+
+<p><b>مثال</b></p>
+<div dir="ltr" lang="en">
+<pre>
+تغییر زبان سیستم به انگلیسی
+c:language:en
+فراخوانی یک صفحه با درنظر گرفتن زبان سیستم
+widget:html:page-{c:language}.htm
+</pre></div>
+
+<h2><span class="mw-headline" id="message1">message1</span></h2>
+<p>نمایش پیام</p>
+
+<p><b>موارد استفاده</b></p>
+
+<ul>
+<li>نمایش اطلاعات و خطاها به کاربر</li></ul>
+
+
+<p><b>پارامترها</b></p>
+
+<ol>
+<li>
+<ul>
+<li>متن پیام</li></ul></li></ol>
+
+
+<p><b>مقدار بازگشتی</b></p>
+<p>ندارد</p>
+
+<p><b>مثال</b></p>
+<div dir="ltr" lang="en">
+<pre>
+نمایش یک متن ساده
+c:message1:test
+نمایش متن های سیستمی
+c:message1:{c:bundle:pleasewait}...
+</pre></div>
+
+<h2><span class="mw-headline" id="message2">message2</span></h2>
+<p>نمایش پیام به همراه کلید تایید یا لغو</p>
+
+<p><b>موارد استفاده</b></p>
+
+<ul>
+<li>پرسیدن سئوال از شخص و انجام دستور مناسب</li></ul>
+
+
+<p><b>پارامترها</b></p>
+
+<ol>
+<li>
+<ul>
+<li>متن پیام</li></ul></li>
+<li>
+<ul>
+<li>متن کلید شماره ۱</li></ul></li>
+<li>متن کلید شماره ۲ در صورت وجود و یا خالی در صورت عدم وجود</li>
+<li>دستور کلید شماره ۱ در صورت وجود</li>
+<li>دستور کلید شماره ۲ در صورت وجود</li></ol>
+
+
+<p><b>مقدار بازگشتی</b></p>
+<p>ندارد</p>
+
+<p><b>مثال</b></p>
+<div dir="ltr" lang="en">
+<pre>
+نمایش متن با کلید تایید ساده و بستن پیام پس از کلید
+c:message2:your message:ok
+نمایش متن به همراه کلید
+c:message2:Do you want to exist?:yes:no:{c:eixt}
+</pre></div>
+
+
+<h2><span class="mw-headline" id="sendsms">sendsms</span></h2>
+<p>توسط این آیتم می توانید یک متن خاص را به شماره دلخواه خود پیامک کنید</p>
+<p>توجه نمایید که برای استفاده از این قسمت آیتم &#34;ارسال&#34; را در قسمت قابلیت های نرم افزار انتخاب نمایید</p>
+
+<p><b>موارد استفاده</b></p>
+
+<ul>
+<li>ارسال هرگونه متن و درخواست به شخص و یا سرور مورد نظر توسط پیامک (برای مثال شما کدی را به شماره پیامک می کنید و اطلاعات خاصی را دریافت می کنید)</li></ul>
+
+
+<p><b>پارامترها</b></p>
+
+<ol>
+<li>
+<ul>
+<li>متن پیام</li></ul></li>
+<li>
+<ul>
+<li>شماره شخص مورد نظر به صورت کامل</li></ul></li>
+<li>پورت ارسالی پیامک (در صورتی که می خواهید بر روی پورت پیش فرض ارسال کنید 0 بگذارید)</li>
+<li>پیام انتظار. این پایام تا زمانی که پیامک ارسال شود و با خطا مواجه شود بر روی صفحه باقی خواهد ماند</li>
+<li>دستوری که زمانی که پیامک به صورت کامل ارسال شود اجرا خواهد شد</li>
+<li>دستوری که زمانی که پیامک به خاطا مواجه شود اجرا خواهد شد</li>
+<li>دستوری که زمانی که نرم افزار اجازه ارسال پیامک ندارد (به دلیل عدم permission یا تایید ارسال توسط کاربر) اجرا خواهد شد. دصورتی که این دستور ست نشود دستور خطای قبلی در صورت وجود اجرا خواهد شد</li></ol>
+
+
+<p><b>مقدار بازگشتی</b></p>
+<p>ندارد</p>
+
+<p><b>مثال</b></p>
+<div dir="ltr" lang="en">
+<pre>
+c:sendsms:sample text:123456:0:در حال ارسال...:{c:message1:پیام با موفقیت اجرا شد}:{c:message1:خطا در ارسال پیام}:{c:message1:عدم اجازه در ارسال پیام توسط سیستم}
+</pre></div>
+
+<h2><span class="mw-headline" id="info">info</span></h2>
+<p>دریافت اطلاعت تلفن همراه در قالب متن شامل:
+</p>
+<ul>
+<li>name: نام نرم افزار</li>
+<li>version: نسخه نرم افزار</li>
+<li>platform: مدل تلفن همراه</li>
+<li>zone: منطقه (کشور)</li>
+<li>touch: پشتیبانی از صفحات لمسی</li>
+<li>screen: ابعاد صفحه نمایش</li></ul>
+
+
+<p><b>موارد استفاده</b></p>
+
+<ul>
+<li>ارسال اطلاعات کاربران به منظور تحلیل در سرور</li></ul>
+
+
+<p><b>پارامترها</b></p>
+<p>ندارد</p>
+
+<p><b>مقدار بازگشتی</b></p>
+<p>متن مورد نظر</p>
+
+<p><b>مثال</b></p>
+<div dir="ltr" lang="en">
+<pre>
+c:sendsms:{c:info}:12345
+</pre></div>
+
+
+
+<h2><span class="mw-headline" id="font">font</span></h2>
+<p>برای تغییر دریافت یا تغییر فونت می توانید از این دستور استفاده نمایید</p>
+
+<p><b>پارامترها</b></p>
+
+<ol>
+<li>مسیر فونت جدید در صورت نیاز به تغییر فونت</li></ol>
+
+
+<p><b>مقدار بازگشتی</b></p>
+<p>مسیر فایل فونت کنونی</p>
+
+<p><b>مثال</b></p>
+<div dir="ltr" lang="en">
+<pre>
+c:font:/theme/sampletheme/font.bmf
+</pre></div>
+
+
+<h2><span class="mw-headline" id="rand">rand</span></h2>
+<p>یک عدد تصادفی تولید می کند</p>
+
+<p><b>پارامترها</b></p>
+
+<ol>
+<li>عدد شروع</li>
+<li>عدد پایان</li></ol>
+
+
+<p><b>مقدار بازگشتی</b></p>
+<p>عدد تصادفی بین شروع و پایان (عدد مورد نظر همیشه کمتر از عدد پایان است و هیچ وقت برابر آن نخواهد شد اما ممکن است برابر عدد شروع باشد)</p>
+
+<p><b>مثال</b></p>
+<div dir="ltr" lang="en">
+<pre>
+&#60;a href=&#39;html:page-{c:rand:0:100}.htm&#39;&#62;نمایش یکی از صفحات ۰ تا ۹۹&#60;/a&#62;
+</pre></div>
+
+<h2><span class="mw-headline" id="tel">tel</span></h2>
+<p>به منظور برقراری تماس مستقیم با شماره مورد نظر مورد استفاده قرار می گیرد</p>
+
+<p><b>پارامترها</b></p>
+
+<ol>
+<li>
+<ul>
+<li>شماره کامل مورد نظر</li></ul></li></ol>
+
+
+<p><b>مقدار بازگشتی</b></p>
+<p>ندارد</p>
+
+<p><b>مثال</b></p>
+<div dir="ltr" lang="en">
+<pre>
+&#60;a href=&#39;tel:09123333333&#39;&#62;Call me!&#60;/a&#62;
+</pre></div>
