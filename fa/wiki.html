@@ -64,6 +64,7 @@
 							<a href="#استفاده از نرم افزار">نرم افزار کتابچه</a>
 							<ul class="nav">
 								<li class="active"><a href="#قوانین_انتشار">قوانین انتشار</a></li>
+								<li class="active"><a href="#ساخت_فونت">ساخت فونت</a></li>
 							</ul>
 						</li>
 						<li>
@@ -139,9 +140,14 @@
 		var hash = location.hash;
 
 		if(hash && hash.length > 0) {
-			$('li.active', nav).removeClass('active');
-			$("[href='" + hash + "']", nav).parents('li').addClass('active');
-			loadContent(hash.substring(1));
+			if(hash.indexOf('##') == 0) {
+				var element = $(hash.substring(1).replace(/\./g, "\\."));
+				$('html, body').animate({scrollTop: $(element).offset().top + 10}, 300);
+			} else {
+				$('li.active', nav).removeClass('active');
+				$("[href='" + hash + "']", nav).parents('li').addClass('active');
+				loadContent(hash.substring(1));
+			}
 		} else {
 			loadContent('شروع');
 		}
