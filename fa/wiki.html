@@ -135,19 +135,14 @@
 			$('#loading').hide();
 		});
 	}
-	function hashchange() {
+	function hashchange(hash) {
 		var nav = $('.bs-sidenav');
 		var hash = location.hash;
 
 		if(hash && hash.length > 0) {
-			if(hash.indexOf('##') == 0) {
-				var element = $(hash.substring(1).replace(/\./g, "\\."));
-				$('html, body').animate({scrollTop: $(element).offset().top + 10}, 300);
-			} else {
-				$('li.active', nav).removeClass('active');
-				$("[href='" + hash + "']", nav).parents('li').addClass('active');
-				loadContent(hash.substring(1));
-			}
+			$('li.active', nav).removeClass('active');
+			$("[href='" + hash + "']", nav).parents('li').addClass('active');
+			loadContent(hash.substring(1));
 		} else {
 			loadContent('شروع');
 		}
@@ -167,6 +162,13 @@
 				// load pages
 				var href = $(this).attr('href');
 			}
+		});
+
+		$('#wiki').on('click', "a[href^='##']", function(e) {
+			e.preventDefault();
+
+			var element = $($(this).attr('href').substring(1).replace(/\./g, "\\."));
+			$('html, body').animate({scrollTop: $(element).offset().top + 10}, 300);
 		});
 	});
 </script>
