@@ -4,6 +4,11 @@ body {
 .container {
 	max-width: 1100;
 }
+#projects img {
+	display: block;
+	text-align: center;
+	margin: auto;
+}
 * {
 	font-family: tahoma, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
