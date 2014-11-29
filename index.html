@@ -9,8 +9,7 @@
 
 	<!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
 
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/bootstrap.all.css">
 
 	<!-- for social network like Facebook and Google+ -->
 	<title>Hamed Abdollahpour</title>
@@ -36,13 +35,17 @@
 	<![endif]-->
 
 	<style type="text/css">
-	.container img {
-		width: 200px;
-		height: 150px;
-	}
 	.alert img {
 		width: auto;
 		height: auto;
+	}
+	.img-center {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: .5em;
+		margin-bottom: .5em;
+		/*-webkit-filter: drop-shadow(12px 12px 7px rgba(255,255,255,0.3));*/
 	}
 	</style>
 </head>
@@ -52,7 +55,7 @@
 	<p closeass="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<nav class="navbar-scroll navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar-scroll navbar navbar-default" role="navigation">
 	<div class="container">
 		<!-- Brande.jquery.com/jquery-1.11.0.min.js"></script>
 		<script>window.jQuery || document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"><\/script>')</script>
@@ -102,87 +105,86 @@
 			</div>
 		</div>
 
-		<div class='col-xs-12'>
-			<h2>Active projects</h2>
-		</div>
-
+	</div>
+	
+	<h1 class="page-header">Active projects</h1>
+	<div class="row">
 		<div class='col-sm-6 col-md-4'>
-			<img src="img/mobilesbrain.jpg" />
+			<img src="img/mobilesbrain.png" class="img-rounded img-center" />
 			<p>Intelligent data mining framework for Android phones <a href="#">(more...)</a></p>
 		</div>
 		<div class='col-sm-6 col-md-4'>
-			<img src="img/wpic-lp.jpg" />
+			<img src="img/wpic-lp.jpg" class="img-rounded img-center" />
 			<p>Landing page management system.<a href="#">(more...)</a></p>
 		</div>
 		<div class='col-sm-6 col-md-4'>
-			<img src="img/wpic-seo.jpg" />
+			<img src="img/wpic-seo.jpg" class="img-rounded img-center" />
 			<p>Advance scrapting system for Baidu.com, Google.com, Bing.com, ... <a href="http://wpic.bitbucket.org/wpic-seo2/">(more...)</a></p>
 		</div>
 
-		<div class='col-xs-12'>
-			<hr/>
-			<h2>Projects</h2>
-		</div>
+	</div>
+
+	<h1 class="page-header">Old projects</h1>
+	<div class="row">
 		<div class='col-sm-6 col-md-4'>
-			<img src="img/pdroid.jpg" />
+			<img src="img/pdroid.png" class="img-rounded img-center" />
 			<p><b>PDroid:</b> Content managemet system for Android, Web, Windows, Linux, Mac <a href="#">(more...)</a></p>
 		</div>
 		<div class='col-sm-6 col-md-4'>
-			<img src="img/dinosaur.jpg" />
+			<img src="img/dinosaur.png" class="img-rounded img-center" />
 			<p><b>Dinosaur:</b> Landing page generator for bootstrap ... <a href="#">(more...)</a></p>
 		</div>
 		<div class='col-sm-6 col-md-4'>
-			<img src="img/xweb.jpg" />
+			<img src="img/xweb.png" class="img-rounded img-center" />
 			<p><b>XWeb:</b> Lightweight Java Application Server Framework , ... <a href="#">(more...)</a></p>
 		</div>
 		<div class='col-sm-6 col-md-4'>
-			<img src="img/giligili.jpg" />
+			<img src="img/giligili.png" class="img-rounded img-center" />
 			<p><b>Giligili:</b> Android HTML5 application generator <a href="#">(more...)</a></p>
 		</div>
+	</div>
 
-		<div class='col-xs-12'>
-			<hr/>
-			<h2>Projects (No support anymore)</h2>
-		</div>
+	<h1 class="page-header">Not supported anymore</h1>
+	<div class="row">
 		<div class='col-sm-6 col-md-4'>
-			<img src="img/ketabche.jpg" />
+			<img src="img/ketabche.jpg" class="img-rounded img-center" />
 			<p><b>Ketabche:</b> Android HTML5 application generator <a href="#">(more...)</a></p>
 		</div>
 		<div class='col-sm-6 col-md-4'>
-			<img src="img/mjface.jpg" />
+			<img src="img/mjface.jpg" class="img-rounded img-center" />
 			<p><b>MJFace:</b> Full feature, fast and lightweight UI framework for JavaME platform. <a href="#">(more...)</a></p>
 		</div>
 		<div class='col-sm-6 col-md-4'>
-			<img src="img/mjface-toolkit.jpg" />
+			<img src="img/mjface-toolkit.jpg" class="img-rounded img-center" />
 			<p><b>MJFace toolkit:</b> Android HTML5 application generator <a href="#">(more...)</a></p>
 		</div>
 		<div class='col-sm-6 col-md-4'>
-			<img src="img/saradic.jpg" />
+			<img src="img/saradic.jpg" class="img-rounded img-center" />
 			<p><b>SaraDic:</b> Full Persian &gt;&lt; English dictionary for JavaME phones with auto-compiliation, pronunciation<a href="#">(more...)</a></p>
 		</div>
 		<div class='col-sm-6 col-md-4'>
-			<img src="img/carman.jpg" />
+			<img src="img/carman.jpg" class="img-rounded img-center" />
 			<p><b>Carman:</b> Full car remote on your (J2ME) phone with GPS, remote access and ... for Carman devices<a href="files/carman.pdf" target="_blank">(more...)</a></p>
 		</div>
 
-		<div class='col-xs-12'>
-			<hr/>
-			<h2>Free tools</h2>
-		</div>
+	</div>
+
+	<h1 class="page-header">Free tools</h1>
+	<div class="row">
 		<div class='col-sm-6 col-md-4'>
-			<img src="img/bootstrap-validator.jpg" />
+			<img src="img/bootstrap-validator.jpg" class="img-rounded img-center" />
 			<p><b>Bootstrap-validator:</b> Simple and powerfull bootstrap form validator <a href="https://github.com/wpic/bootstrap.validator.js" target="_blank">(more...)</a></p>
 		</div>
 		<div class='col-sm-6 col-md-4'>
-			<img src="img/bootstrap-switch.jpg" />
+			<img src="img/bootstrap-switch.jpg" class="img-rounded img-center" />
 			<p><b>Bootstrap switch:</b> Cute switch button (checkbox) for bootstrap less than 2 KB <a href="https://github.com/wpic/bootstrap-switch" target="_blank">(more...)</a></p>
 		</div>
 		<div class='col-sm-6 col-md-4'>
-			<img src="img/bootstrap-number-input.jpg" />
+			<img src="img/bootstrap-number-input.jpg" class="img-rounded img-center" />
 			<p><b>Bootstrap number input:</b> Very simple, fast and lightweight (> 3K) jquery plugin for bootstrap to render number input more user-friendly. <a href="https://github.com/wpic/bootstrap-number-input" target="_blank">(more...)</a></p>
 		</div>
 		<div class='col-sm-6 col-md-4'>
-			<img src="img/jjalali.jpg" />
+			<img src="img/jjalali.jpg" class="img-rounded img-center" />
 			<p><b>Jjalali:</b> Simple Jalali calendar library for Java. <a href="https://github.com/abdollahpour/jjalali" target="_blank">(more...)</a></p>
 		</div>
 	</div>
